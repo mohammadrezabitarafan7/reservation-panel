@@ -18,9 +18,7 @@ import { TrashIcon } from '@heroicons/react/24/outline'
 export const columns = [
   { name: 'عملیات', uid: 'actions' },
   { name: '(ساعت) مدت زمان انجام', uid: 'time' },
-  { name: 'وضعیت', uid: 'status' },
-  { name: 'عنوان', uid: 'title' },
-  { name: '#', uid: 'id' }
+  { name: 'عنوان', uid: 'title' }
 ]
 
 const statusColorMap = {
@@ -33,7 +31,10 @@ export default function ServiceTable () {
   const fetcher = url => axios.get(url).then(res => res.data)
   const [categoryToDelete, setCategoryToDelete] = useState(null)
 
-  const data = [{ id: '12', title: 'اصلاح سر', time: '2' }]
+  const data = [
+    { title: 'اصلاح سر', time: '1/5' },
+    { title: 'اصلاح صورت', time: '1' }
+  ]
 
   // const {
   //   data: fetchedData,
@@ -71,22 +72,21 @@ export default function ServiceTable () {
     // }
 
     switch (columnKey) {
-      case 'id':
-        return <span className='text-medium'>{user.id}</span>
-
-      case 'status':
-        return (
-          <Chip
-            className={`${statusColorMap[user.status]}`}
-            size='sm'
-            variant='flat'
-          >
-            {user.status === 'active' ? 'فعال' : 'غیر فعال'}
-          </Chip>
-        )
+      // case 'id':
+      //   return <span className='text-medium'>{user.id}</span>
 
       case 'time':
-        return <span className='text-black'>{user.time}</span>
+        return (
+          <Chip
+            color='primary'
+
+            size='sm'
+            variant='solid'
+          >
+            {user.time}
+          </Chip>
+        )
+      // <span className='text-black'>{user.time}</span>
       case 'actions':
         return (
           <div className='flex items-center justify-end'>

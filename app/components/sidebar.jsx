@@ -1,7 +1,8 @@
 'use client'
 import clsx from 'clsx'
 import NavLinks from './navlinks'
-import { Divider } from "@heroui/react"
+import { Divider } from '@heroui/react'
+import ExpiredDate from './expired-date'
 
 const SideBar = () => {
   return (
@@ -12,13 +13,7 @@ const SideBar = () => {
       )}
     >
       <div className='h-14 p-3 flex  sticky top-0 bg-inherit z-10'>
-        <div className='flex flex-row-reverse justify-around m-auto gap-3'>
-          <h1 className='text-white font-bold text-sm'>: مدت اعتبار</h1>
-          <div className='flex flex-row gap-2 justify-start text-white font-bold text-sm'>
-            <span>روز</span>
-            <span className='underline'>12</span>
-          </div>
-        </div>
+        <ExpiredDate />
       </div>
       <Divider className='bg-[#FF4F00] h-[2px] rounded-lg w-2/3 mx-auto' />
 

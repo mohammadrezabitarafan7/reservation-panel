@@ -1,10 +1,41 @@
 import React, { useState } from 'react'
-import { CheckboxGroup, Checkbox, Button } from "@heroui/react"
+import { CheckboxGroup, Checkbox, Button } from '@heroui/react'
 import axios from 'axios'
 
 const WeeksForm = () => {
   const [selectedValues, setSelectedValues] = useState([])
   const [loading, setLoading] = useState(false)
+
+  const days = [
+    {
+      day: 'شنبه',
+      value: 'شنبه'
+    },
+    {
+      day: 'یک شنبه',
+      value: 'یک شنبه'
+    },
+    {
+      day: 'دوشنبه',
+      value: 'دوشنبه'
+    },
+    {
+      day: 'سه شنبه',
+      value: 'سه شنبه'
+    },
+    {
+      day: 'چهار شنبه',
+      value: 'جهار شنبه'
+    },
+    {
+      day: 'پنج شنبه',
+      value: 'پنج شنبه'
+    },
+    {
+      day: 'جمعه',
+      value: 'جمعه'
+    }
+  ]
 
   const handleSubmit = async () => {
     setLoading(true)
@@ -33,18 +64,15 @@ const WeeksForm = () => {
         <CheckboxGroup
           size='sm'
           errorMessag='sdsasd'
-          className='text-end  text-xs'
+          className='text-end text-black text-xs'
           orientation='horizontal'
           isRequired
           onValueChange={value => setSelectedValues(value)}
         >
-          <Checkbox value='Saturday'>شنبه</Checkbox>
-          <Checkbox value='Sunday'>یکشنبه</Checkbox>
-          <Checkbox value='Monday'>دوشنبه</Checkbox>
-          <Checkbox value='Tuesday'>سه‌شنبه</Checkbox>
-          <Checkbox value='Wednesday'>چهارشنبه</Checkbox>
-          <Checkbox value='Thursday'>پنج‌شنبه</Checkbox>
-          <Checkbox value='Friday'>جمعه</Checkbox>
+          {days.map((i, index) => (
+            <Checkbox key={index} className='text-black' value={i.value}>{i.day}</Checkbox>
+          ))}
+   
         </CheckboxGroup>
 
         <Button

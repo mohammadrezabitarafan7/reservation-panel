@@ -20,15 +20,15 @@ const DayForm = () => {
     <div>
       <div className='flex flex-col gap-3'>
         <h1 className='text-end text-xs font-bold '>
-          حداکثر تعداد روز های مشاهده شده توسط کاربر
+          کاربر تا چند روز بعد رو می‌تونه ببینه؟
         </h1>
         <form
           onSubmit={handleSubmit(onSubmitDays)}
           className='flex flex-row-reverse gap-3 justify-between'
         >
           <input
-            type='number'
-            className=' border-1 flex-1 text-end outline-none p-2 rounded-md text-xs '
+            inputMode='numeric'
+            className=' text-base border-1 flex-1 text-end outline-none p-2 rounded-md'
             placeholder='تعداد روز'
             {...register('days', { required: true })}
             aria-invalid={errors.days ? 'true' : 'false'}

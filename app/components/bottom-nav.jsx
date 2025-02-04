@@ -21,7 +21,10 @@ const BottomNav = () => {
   ]
 
   return (
-    <div className='flex flex-row justify-evenly bg-[#24303c] p-[3px]  z-50 rounded-full shadow-inner fixed bottom-[2rem] left-4 right-4 md:hidden'>
+    <div
+      className='flex flex-row justify-evenly bg-[#24303c] backdrop-blur-lg p-[3px]  z-50 rounded-xl shadow-inner fixed bottom-2
+    left-4 right-4 md:hidden'
+    >
       {links.map((link, index) => (
         <Link
           key={index}
@@ -30,7 +33,7 @@ const BottomNav = () => {
             'flex flex-col gap-2 rounded-md items-center p-2 text-center text-sm',
             pathname === link.href
               ? 'text-[#FF4F00] select-none'
-              : 'text-white hover:bg-[#1d2430]'
+              : 'text-white '
           )}
         >
           <link.icon

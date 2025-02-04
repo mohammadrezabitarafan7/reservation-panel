@@ -20,7 +20,6 @@ const Services = () => {
     formState: { errors }
   } = useForm()
 
-
   const onSubmit = async data => {
     try {
     } catch (error) {
@@ -30,7 +29,7 @@ const Services = () => {
   }
 
   return (
-    <div className='flex flex-col gap-3'>
+    <div className='flex flex-col gap-4 p-4'>
       <div className='flex flex-row justify-between bg-[#24303c] shadow-md rounded-md p-8 max-md:flex-col-reverse max-md:gap-5'>
         <Button
           variant='flat'
@@ -52,7 +51,12 @@ const Services = () => {
         </div>
       </div>
       <ServiceTable />
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+      <Modal
+        placement='center'
+        className='m-4'
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+      >
         <ModalContent>
           {onClose => (
             <>
@@ -66,25 +70,32 @@ const Services = () => {
                 >
                   <input
                     type='text'
-                    className='border-1 outline-none text-end p-2 rounded-md text-[12px]'
+                    className='border-1 text-base  outline-none text-end p-2 rounded-md '
                     placeholder='عنوان'
                     {...register('title', { required: true })}
                     aria-invalid={errors.title ? 'true' : 'false'}
                   />
                   {errors.title?.type === 'required' && (
-                    <p className='text-myOrange text-[12px]' role='alert'>
+                    <p
+                      className='text-myOrange text-tiny text-end'
+                      role='alert'
+                    >
                       لطفا عنوان خود را وارد کنید
                     </p>
                   )}
                   <input
-                    type='number'
-                    className='border-1 outline-none p-2 text-end rounded-md text-[12px]'
+                    type='text'
+                    inputMode='numeric'
+                    className='border-1 text-base outline-none p-2 text-end rounded-md text-[12px]'
                     placeholder='زمان انجام کار'
                     {...register('time', { required: true })}
                     aria-invalid={errors.time ? 'true' : 'false'}
                   />
                   {errors.time?.type === 'required' && (
-                    <p className='text-myOrange text-[12px]' role='alert'>
+                    <p
+                      className='text-myOrange text-tiny text-end'
+                      role='alert'
+                    >
                       لطفا زمان را وارد کنید
                     </p>
                   )}

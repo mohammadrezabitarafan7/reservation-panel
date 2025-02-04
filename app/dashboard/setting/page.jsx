@@ -30,7 +30,7 @@ const Setting = () => {
   }
 
   return (
-    <div className='flex flex-col gap-5'>
+    <div className='flex flex-col gap-5 p-4'>
       <div className='bg-[#24303c] shadow-sm rounded-md flex flex-col gap-5 p-6 '>
         <h1 className='text-myOrange font-bold text-medium text-end'>
           تنظیمات
@@ -49,20 +49,23 @@ const Setting = () => {
             className='flex flex-row-reverse gap-3 justify-between'
           >
             <input
+              type='number'
+              
               min='8'
               max='12'
-              type='number'
-              className=' border-1 flex-1 text-end outline-none p-2 rounded-md text-[12px] '
+              inputMode='numeric'
+              className=' border-1 flex-1 text-end outline-none p-2 rounded-md  text-base '
               placeholder='از ساعت'
               {...register('fromhoure', { required: true })}
               aria-invalid={errors.fromhoure ? 'true' : 'false'}
             />
             <input
+              inputMode='numeric'
               type='number'
               min='8'
               max='22'
               step='1'
-              className=' border-1 flex-1 text-end outline-none p-2 rounded-md text-[12px] '
+              className=' border-1 flex-1 text-end outline-none p-2 rounded-md text-base '
               placeholder='تا ساعت'
               {...register('tillhoure', { required: true })}
             />

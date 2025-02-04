@@ -10,7 +10,7 @@ import {
   Tooltip,
   Button,
   Pagination
-} from "@heroui/react"
+} from '@heroui/react'
 import { XCircleIcon, CheckCircleIcon } from '@heroicons/react/24/outline'
 import { useState, useCallback } from 'react'
 
@@ -28,48 +28,54 @@ export const data = [
     name: 'محمدرضا بیطرفان',
     hour: '۱۲',
     date: '۱۰/۱۲',
-    phone: '۰۹۱۲۸۹۲۹۷۲۸'
+    phone: '۰۹۱۲۸۹۲۹۷۲۸',
+    day: 'دوشنبه'
+  },
+  {
+    id: 2,
+    name: 'محمدرضا بیطرفان',
+    hour: '۱۲',
+    date: '۱۰/۱۲',
+    phone: '۰۹۱۲۸۹۲۹۷۲۸',
+    day: 'دوشنبه'
+  },
+  {
+    id: 3,
+    name: 'محمدرضا بیطرفان',
+    hour: '۱۲',
+    date: '۱۰/۱۲',
+    phone: '۰۹۱۲۸۹۲۹۷۲۸',
+    day: 'دوشنبه'
   },
   {
     id: 1,
     name: 'محمدرضا بیطرفان',
     hour: '۱۲',
     date: '۱۰/۱۲',
-    phone: '۰۹۱۲۸۹۲۹۷۲۸'
+    phone: '۰۹۱۲۸۹۲۹۷۲۸',
+    day: 'دوشنبه'
   },
   {
     id: 1,
     name: 'محمدرضا بیطرفان',
     hour: '۱۲',
     date: '۱۰/۱۲',
-    phone: '۰۹۱۲۸۹۲۹۷۲۸'
+    phone: '۰۹۱۲۸۹۲۹۷۲۸',
+    day: 'دوشنبه'
   },
   {
     id: 1,
     name: 'محمدرضا بیطرفان',
     hour: '۱۲',
     date: '۱۰/۱۲',
-    phone: '۰۹۱۲۸۹۲۹۷۲۸'
-  },
-  {
-    id: 1,
-    name: 'محمدرضا بیطرفان',
-    hour: '۱۲',
-    date: '۱۰/۱۲',
-    phone: '۰۹۱۲۸۹۲۹۷۲۸'
-  },
-  {
-    id: 1,
-    name: 'محمدرضا بیطرفان',
-    hour: '۱۲',
-    date: '۱۰/۱۲',
-    phone: '۰۹۱۲۸۹۲۹۷۲۸'
+    phone: '۰۹۱۲۸۹۲۹۷۲۸',
+    day: 'دوشنبه'
   },
 ]
 
 export default function WaitingTable () {
   const [page, setPage] = useState(1)
-  const itemsPerPage = 4
+  const itemsPerPage = 3
   const startIndex = (page - 1) * itemsPerPage
   const endIndex = startIndex + itemsPerPage
   const currentPageData = data.slice(startIndex, endIndex)
@@ -79,22 +85,44 @@ export default function WaitingTable () {
 
     switch (columnKey) {
       case 'id':
-        return <span className='text-sm'>{user.id}</span>
+        return <span className='text-tiny underline'>{user.id}</span>
 
       case 'hour':
         return (
-          // <Chip className='text-[#fd693c]' color='primary' variant=''>
-          //   {user.hour}
-          // </Chip>
-          (<span className='text-black font-semibold text-medium'>
+          <Chip
+            size='sm'
+            className='text-myOrange'
+            color='default'
+            variant='light'
+            // classNames={{
+            //   base: "border-small border-myOrange",
+            //   content: "drop-shadow shadow-black text-myOrange",
+            // }}
+          >
+            
             {user.hour}
-          </span>)
-        );
+          </Chip>
+          // (<span className='text-myOrange text-center underline font-semibold text-tiny'>
+          //   {user.hour}
+          // </span>)
+        )
       case 'date':
         return (
-          <span className='text-black font-semibold text-medium'>
-            {user.date}
-          </span>
+          // <span className='text-black font-semibold text-medium'>
+          //   {user.date}
+          // </span> */}
+          <Chip
+            size='sm'
+            classNames={{
+              base: '',
+              content: ''
+            }}
+            className='text-myOrange font-bold'
+            color='flat'
+            variant='solid'
+          >
+            {user.date}-{user.day}
+          </Chip>
         )
       case 'actions':
         return (
@@ -124,8 +152,8 @@ export default function WaitingTable () {
       case 'name':
         return (
           <div className='flex flex-col text-end gap-2'>
-            <p className='font-bold text-black text-sm '>{cellValue}</p>
-            <p className='text-sm text-black'>{user.phone}</p>
+            <p className='font- text-black text-tiny '>{cellValue}</p>
+            {/* <p className='text-sm text-black'>{user.phone}</p> */}
           </div>
         )
       default:
@@ -140,7 +168,7 @@ export default function WaitingTable () {
       aria-label='Example table with pagination'
       layout='auto'
       bottomContent={
-        <div className='flex w-full justify-center my-8'>
+        <div className='flex w-full justify-center my-4'>
           <Pagination
             isCompact
             showControls
