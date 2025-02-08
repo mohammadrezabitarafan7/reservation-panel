@@ -96,7 +96,6 @@ export default function ServiceTable () {
                 isIconOnly
                 aria-label='Delete'
                 className='text-default-400'
-                onClick={() => deleteCategory(user.id)} // حذف آیتم
               >
                 <TrashIcon className='w-5 h-5' />
               </Button>

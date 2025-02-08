@@ -16,6 +16,7 @@ import { useState, useCallback } from 'react'
 
 export const columns = [
   { name: 'عملیات', uid: 'actions' },
+  { name: 'خدمات', uid: 'service' },
   { name: 'ساعت', uid: 'hour' },
   { name: 'روز', uid: 'date' },
   { name: 'نام', uid: 'name' },
@@ -26,51 +27,40 @@ export const data = [
   {
     id: 1,
     name: 'محمدرضا بیطرفان',
-    hour: '۱۲',
+    hour: '15',
     date: '۱۰/۱۲',
     phone: '۰۹۱۲۸۹۲۹۷۲۸',
-    day: 'دوشنبه'
+    day: 'دوشنبه',
+    service:'اصلاح سر'
   },
   {
     id: 2,
-    name: 'محمدرضا بیطرفان',
-    hour: '۱۲',
-    date: '۱۰/۱۲',
+    name: 'شایان محمودی',
+    hour: '19',
+    date: '۱۰/12',
     phone: '۰۹۱۲۸۹۲۹۷۲۸',
-    day: 'دوشنبه'
+    day: 'دوشنبه',
+    service:'اصلاح سر'
   },
   {
     id: 3,
-    name: 'محمدرضا بیطرفان',
-    hour: '۱۲',
-    date: '۱۰/۱۲',
+    name: 'علی اسلامی',
+    hour: '12',
+    date: '۱۰/13',
     phone: '۰۹۱۲۸۹۲۹۷۲۸',
-    day: 'دوشنبه'
+    day: 'دوشنبه',
+    service:'فشیال پوست'
   },
   {
-    id: 1,
-    name: 'محمدرضا بیطرفان',
-    hour: '۱۲',
-    date: '۱۰/۱۲',
+    id: 4,
+    name: 'حمیدرضا بقایی',
+    hour: '16',
+    date: '۱۰/14',
     phone: '۰۹۱۲۸۹۲۹۷۲۸',
-    day: 'دوشنبه'
+    day: 'دوشنبه',
+    service:'اصلاح سر'
   },
-  {
-    id: 1,
-    name: 'محمدرضا بیطرفان',
-    hour: '۱۲',
-    date: '۱۰/۱۲',
-    phone: '۰۹۱۲۸۹۲۹۷۲۸',
-    day: 'دوشنبه'
-  },
-  {
-    id: 1,
-    name: 'محمدرضا بیطرفان',
-    hour: '۱۲',
-    date: '۱۰/۱۲',
-    phone: '۰۹۱۲۸۹۲۹۷۲۸',
-    day: 'دوشنبه'
-  },
+  
 ]
 
 export default function WaitingTable () {
@@ -86,6 +76,8 @@ export default function WaitingTable () {
     switch (columnKey) {
       case 'id':
         return <span className='text-tiny underline'>{user.id}</span>
+      case 'service':
+        return <span className='text-tiny text-myOrange'>{user.service}</span>
 
       case 'hour':
         return (
@@ -94,23 +86,12 @@ export default function WaitingTable () {
             className='text-myOrange'
             color='default'
             variant='light'
-            // classNames={{
-            //   base: "border-small border-myOrange",
-            //   content: "drop-shadow shadow-black text-myOrange",
-            // }}
           >
-            
             {user.hour}
           </Chip>
-          // (<span className='text-myOrange text-center underline font-semibold text-tiny'>
-          //   {user.hour}
-          // </span>)
         )
       case 'date':
         return (
-          // <span className='text-black font-semibold text-medium'>
-          //   {user.date}
-          // </span> */}
           <Chip
             size='sm'
             classNames={{
@@ -139,6 +120,7 @@ export default function WaitingTable () {
             </Tooltip>
             <Tooltip content='تایید'>
               <Button
+              
                 variant='light'
                 isIconOnly
                 aria-label='Like'
