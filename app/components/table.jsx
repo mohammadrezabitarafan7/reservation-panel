@@ -31,7 +31,7 @@ export const data = [
     date: '۱۰/۱۲',
     phone: '۰۹۱۲۸۹۲۹۷۲۸',
     day: 'دوشنبه',
-    service:'اصلاح سر'
+    service: 'اصلاح سر'
   },
   {
     id: 2,
@@ -40,7 +40,7 @@ export const data = [
     date: '۱۰/12',
     phone: '۰۹۱۲۸۹۲۹۷۲۸',
     day: 'دوشنبه',
-    service:'اصلاح سر'
+    service: 'اصلاح سر'
   },
   {
     id: 3,
@@ -49,7 +49,7 @@ export const data = [
     date: '۱۰/13',
     phone: '۰۹۱۲۸۹۲۹۷۲۸',
     day: 'دوشنبه',
-    service:'فشیال پوست'
+    service: 'فشیال پوست'
   },
   {
     id: 4,
@@ -58,9 +58,8 @@ export const data = [
     date: '۱۰/14',
     phone: '۰۹۱۲۸۹۲۹۷۲۸',
     day: 'دوشنبه',
-    service:'اصلاح سر'
-  },
-  
+    service: 'اصلاح سر'
+  }
 ]
 
 export default function WaitingTable () {
@@ -77,13 +76,13 @@ export default function WaitingTable () {
       case 'id':
         return <span className='text-tiny underline'>{user.id}</span>
       case 'service':
-        return <span className='text-tiny text-myOrange'>{user.service}</span>
+        return <span className='text-tiny text-justify text-myOrange'>{user.service}</span>
 
       case 'hour':
         return (
           <Chip
             size='sm'
-            className='text-myOrange'
+            className='text-black'
             color='default'
             variant='light'
           >
@@ -120,7 +119,7 @@ export default function WaitingTable () {
             </Tooltip>
             <Tooltip content='تایید'>
               <Button
-              
+                onClick={() => alert(user.id)}
                 variant='light'
                 isIconOnly
                 aria-label='Like'
@@ -134,8 +133,9 @@ export default function WaitingTable () {
       case 'name':
         return (
           <div className='flex flex-col text-end gap-2'>
-            <p className='font- text-black text-tiny '>{cellValue}</p>
-            {/* <p className='text-sm text-black'>{user.phone}</p> */}
+            <p className='font- text-black text-tiny '>{user.name}</p>
+            <p className='text-xs text-black'>{user.phone}</p>
+
           </div>
         )
       default:

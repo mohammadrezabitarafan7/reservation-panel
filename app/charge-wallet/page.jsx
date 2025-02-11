@@ -5,14 +5,10 @@ import {
   CardBody,
   CardFooter,
   Divider,
-  Link,
-  Image,
-  Tab,
-  Tabs,
-  Button,
-  Chip
+  Button
 } from '@heroui/react'
 import { useRouter } from 'next/navigation'
+import { XMarkIcon } from '@heroicons/react/24/outline'
 
 const ChargeWallet = () => {
   const plans = [
@@ -26,13 +22,21 @@ const ChargeWallet = () => {
   }
   const router = useRouter()
   return (
-    <div className='flex w-full h-screen justify-evenly gap-5 flex-col p-5 '>
+    <div className='flex w-full h-screen justify-center gap-5 flex-col '>
+      <div className='h-[53px] bg-[#24303c] shadow-xl border-b-2 flex justify-center items-center border-myOrange absolute top-0 w-full  px-7'>
+        <span className='text-white text-sm text-center my-auto'>
+          انتخاب اشتراک
+        </span>
+
+        <XMarkIcon className='w-5 h-5 text-white absolute right-2 my-auto cursor-pointer' onClick={()=>router.replace('/dashboard')} />
+      </div>
+
       <div className='flex flex-wrap justify-center gap-4'>
         {plans.map((i, index) => (
           <Card
             key={index}
             className={`max-w-[400px] shadow-2xl ${
-              index === 1 ? 'bg-[#2e4050]' : 'bg-white'
+              index === 0 ? 'bg-myOrange' : 'bg-white'
             }`}
           >
             <CardHeader className='flex gap-3 justify-center'>
@@ -41,7 +45,7 @@ const ChargeWallet = () => {
                   size='lg'
                   radius='md'
                   className={`text-myOrange ${
-                    index === 1 ? 'font-bold text-white' : ''
+                    index === 0 ? 'font-bold text-white' : ''
                   }`}
                 >
                   {i.title}
@@ -50,21 +54,21 @@ const ChargeWallet = () => {
             </CardHeader>
             <Divider
               className={`text-center text-base ${
-                index === 1 ? ' bg-default-500 ' : ' bg-default-200'
+                index === 0 ? ' bg-default-900/10 ' : ' bg-default-200'
               }`}
             />
             <CardBody className='flex flex-col gap-3 justify-evenly px-4'>
               <div className='flex flex-row-reverse justify-center gap-3'>
                 <p
                   className={`text-center text-2xl font-bold ${
-                    index === 1 ? ' text-white' : ' text-default-600'
+                    index === 0 ? ' text-white' : ' text-default-600'
                   }`}
                 >
                   {i.price}
                 </p>
                 <p
                   className={`text-center text-2xl ${
-                    index === 1 ? ' text-white font-bold' : ' text-default-600'
+                    index === 0 ? ' text-white font-bold' : ' text-default-600'
                   }`}
                 >
                   تومان
@@ -72,7 +76,7 @@ const ChargeWallet = () => {
               </div>
               <p
                 className={`text-center text-sm ${
-                  index === 1 ? ' text-white ' : ' text-default-600'
+                  index === 0 ? ' text-white ' : ' text-default-600'
                 }`}
               >
                 با انتخاب پنل می‌توانید از امکانات سامانه رزرواسوین استفاده
@@ -81,7 +85,7 @@ const ChargeWallet = () => {
             </CardBody>
             <Divider
               className={`text-center text-base ${
-                index === 1 ? 'bg-default-500' : ' bg-default-200'
+                index === 0 ? 'bg-default-900/10' : ' bg-default-200'
               }`}
             />
             <CardFooter>
@@ -89,9 +93,9 @@ const ChargeWallet = () => {
                 onClick={() => payment(index)}
                 size='md'
                 className={`p-4 m-auto w-1/2 ${
-                  index === 1
-                    ? ' bg-myOrange  text-white'
-                    : 'bg-transparent border border-myOrange text-myOrange'
+                  index === 0
+                    ? 'bg-white  text-myOrange'
+                    : 'bg-myOrange text-white'
                 }`}
               >
                 خرید
@@ -100,13 +104,6 @@ const ChargeWallet = () => {
           </Card>
         ))}
       </div>
-      <Button
-        className='lg:w-1/2 lg:mx-auto '
-        variant='shadow'
-        onClick={() => router.replace('/dashboard')}
-      >
-        انصراف
-      </Button>
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { CheckboxGroup, Checkbox, Button } from '@heroui/react'
+import { CheckboxGroup, Checkbox, Button, cn } from '@heroui/react'
 import axios from 'axios'
 
 const WeeksForm = () => {
@@ -8,32 +8,34 @@ const WeeksForm = () => {
 
   const days = [
     {
-      day: 'شنبه',
-      value: 'شنبه'
+      day: 'جمعه',
+      value: 'جمعه'
     },
     {
-      day: 'یک شنبه',
-      value: 'یک شنبه'
+      day: 'پنج شنبه',
+      value: 'پنج شنبه'
     },
+
     {
-      day: 'دوشنبه',
-      value: 'دوشنبه'
+      day: 'چهار شنبه',
+      value: 'جهار شنبه'
     },
     {
       day: 'سه شنبه',
       value: 'سه شنبه'
     },
     {
-      day: 'چهار شنبه',
-      value: 'جهار شنبه'
+      day: 'دوشنبه',
+      value: 'دوشنبه'
+    },
+
+    {
+      day: 'یک شنبه',
+      value: 'یک شنبه'
     },
     {
-      day: 'پنج شنبه',
-      value: 'پنج شنبه'
-    },
-    {
-      day: 'جمعه',
-      value: 'جمعه'
+      day: 'شنبه',
+      value: 'شنبه'
     }
   ]
 
@@ -63,16 +65,17 @@ const WeeksForm = () => {
       >
         <CheckboxGroup
           size='sm'
-          errorMessag='sdsasd'
-          className='text-end text-black text-xs'
           orientation='horizontal'
           isRequired
           onValueChange={value => setSelectedValues(value)}
         >
-          {days.map((i, index) => (
-            <Checkbox key={index} className='text-black' value={i.value}>{i.day}</Checkbox>
-          ))}
-   
+          <div className='flex flex-wrap-reverse justify-end gap-4'>
+            {days.map((day, index) => (
+              <Checkbox key={index} value={day.value}>
+                {day.day}
+              </Checkbox>
+            ))}
+          </div>
         </CheckboxGroup>
 
         <Button

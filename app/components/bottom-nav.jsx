@@ -6,9 +6,7 @@ import {
   HomeIcon,
   UsersIcon,
   Cog8ToothIcon,
-  ScissorsIcon,
-  CalendarDateRangeIcon,
-  UserIcon
+  ScissorsIcon
 } from '@heroicons/react/24/solid'
 
 const BottomNav = () => {

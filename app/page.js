@@ -5,6 +5,7 @@ import { Button } from '@heroui/button'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image.js'
 import logo from './public/barbershop waiting clients-rafiki (1).png'
+import Cookies from 'js-cookie'
 
 const LoginPage = () => {
   const {
@@ -21,11 +22,10 @@ const LoginPage = () => {
   }, [])
 
   const onSubmit = async data => {
+    // if (data.phone === '123' && data.password === '123') {
+    // Cookies.set('UserCookie', 'UserCookie', { expires: 0.0001736  })
     setLoading(true)
-    if (data.phone === '123' && data.password === '123') {
-      router.replace('/dashboard')
-    }
-    setLoading(false)
+    router.replace('/dashboard')
   }
 
   return (

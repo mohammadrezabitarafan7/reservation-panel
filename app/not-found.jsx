@@ -1,7 +1,6 @@
 'use client'
 import Image from 'next/image'
 import not from './public/404.png'
-import Link from 'next/link'
 import { Button } from "@heroui/react"
 import { useRouter } from 'next/navigation'
 export default function NotFound () {

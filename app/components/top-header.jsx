@@ -3,9 +3,15 @@ import barber from '../public/pay (2).png'
 import Image from 'next/image'
 import { Button } from '@heroui/react'
 import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 
 const TopHeader = () => {
   const router = useRouter()
+  const [loading, setLoading] = useState(false)
+  const Charge = () => {
+    setLoading(true)
+    router.push('/charge-wallet')
+  }
 
   return (
     <div className=' flex flex-row-reverse gap-5   max-md:flex-col-reverse'>
@@ -25,12 +31,7 @@ const TopHeader = () => {
           </div>
 
           <div className='basis-[20%] flex flex-col lg:hidden'>
-            <Button
-              onClick={() => router.push('/charge-wallet')}
-              radius='sm'
-              color='primary'
-              size='md'
-            >
+            <Button onClick={Charge} radius='sm' color='primary' size='md'>
               تمدید اعتبار
             </Button>
           </div>
@@ -45,7 +46,8 @@ const TopHeader = () => {
           src={barber}
         />
         <Button
-          onClick={() => router.push('/charge-wallet')}
+          isLoading={loading}
+          onClick={Charge}
           className='w-1/2 m-auto'
           radius='sm'
           color='primary'

@@ -5,12 +5,7 @@ import { select, User, Avatar, Skeleton, Divider, Badge } from '@heroui/react'
 import clsx from 'clsx'
 import axios from 'axios'
 import useSWR from 'swr'
-import {
-  Bars3Icon,
-  BellIcon,
-  UserIcon,
-  ArrowLeftStartOnRectangleIcon
-} from '@heroicons/react/24/outline'
+import { ArrowLeftStartOnRectangleIcon } from '@heroicons/react/24/outline'
 import ExpiredDate from './expired-date'
 import { useRouter } from 'next/navigation'
 

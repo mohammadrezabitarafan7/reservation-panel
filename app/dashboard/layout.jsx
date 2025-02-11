@@ -10,7 +10,9 @@ const Layout = ({ children }) => {
       <Header />
       {/* Main Content Area with Scroll */}
       <BottomNav />
-      <div className='flex-1 overflow-y-auto  mt-2 max-md:mt-14'>{children}</div>
+      <div className='flex-1 overflow-y-auto  mt-14 md:mt-14 lg:mt-2'>
+        {children}
+      </div>
     </div>
   )
 }
