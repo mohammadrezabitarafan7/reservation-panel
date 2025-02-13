@@ -12,9 +12,14 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 
 const ChargeWallet = () => {
   const plans = [
-    { id: '1', title: 'پنل طلایی', price: '8,000,000', discount: '' },
-    { id: '2', title: 'پنل نقره ای', price: '6,000,000', discount: '' },
-    { id: '3', title: 'پنل برنزی', price: '3,000,000', discount: '' }
+    { id: '1', title: 'پنل طلایی', price: '12,000,000', des: 'اشتراک سالیانه' },
+    {
+      id: '2',
+      title: 'پنل نقره ای',
+      price: '6,500,000',
+      des: 'اشتراک شش ماهه'
+    },
+    { id: '3', title: 'پنل برنزی', price: '1,200,000', des: 'اشتراک ماهیانه' }
   ]
 
   const payment = i => {
@@ -22,16 +27,22 @@ const ChargeWallet = () => {
   }
   const router = useRouter()
   return (
-    <div className='flex w-full h-screen justify-center gap-5 flex-col '>
-      <div className='h-[53px] bg-[#24303c] shadow-xl border-b-2 flex justify-center items-center border-myOrange absolute top-0 w-full  px-7'>
+    <div className='flex w-full h-screen  justify-center gap-5 flex-col '>
+      <div
+        className='h-[53px] bg-[#24303c] shadow-xl border-b-2 flex fixed justify-center items-center border-myOrange z-30 top-0 w-full
+        px-7'
+      >
         <span className='text-white text-sm text-center my-auto'>
           انتخاب اشتراک
         </span>
 
-        <XMarkIcon className='w-5 h-5 text-white absolute right-2 my-auto cursor-pointer' onClick={()=>router.replace('/dashboard')} />
+        <XMarkIcon
+          className='w-5 h-5 text-white absolute right-2 my-auto cursor-pointer'
+          onClick={() => router.replace('/dashboard')}
+        />
       </div>
 
-      <div className='flex flex-wrap justify-center gap-4'>
+      <div className='flex flex-wrap justify-center mt-5 p-6 gap-4'>
         {plans.map((i, index) => (
           <Card
             key={index}
@@ -44,9 +55,7 @@ const ChargeWallet = () => {
                 <p
                   size='lg'
                   radius='md'
-                  className={`text-myOrange ${
-                    index === 0 ? 'font-bold text-white' : ''
-                  }`}
+                  className={`text-myOrange ${index === 0 ? 'text-white' : ''}`}
                 >
                   {i.title}
                 </p>
@@ -75,12 +84,11 @@ const ChargeWallet = () => {
                 </p>
               </div>
               <p
-                className={`text-center text-sm ${
+                className={`text-center text-sm mx-28 ${
                   index === 0 ? ' text-white ' : ' text-default-600'
                 }`}
               >
-                با انتخاب پنل می‌توانید از امکانات سامانه رزرواسوین استفاده
-                نمائید.
+                {i.des}
               </p>
             </CardBody>
             <Divider

@@ -9,9 +9,9 @@ const GetTime = () => {
   const todayWithMonthName = moment().format('jDD jMMMM jYYYY') // تاریخ امروز شمسی با نام ماه فارسی
 
   return (
-    <div className='text-end py-4'>
-      <p className='text-medium font-bold text-[#ffffff]'>
-        تاریخ امروز :   {todayWithMonthName}
+    <div className='text-end '>
+      <p className='text-lg text-[#ffffff] lg:font-bold'>
+         امروز :   {todayWithMonthName}
       </p>
     </div>
   )

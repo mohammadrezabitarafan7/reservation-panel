@@ -34,7 +34,7 @@ const Services = () => {
         <Button
           variant='flat'
           color='default'
-          radius='full'
+          radius='sm'
           size='sm'
           className='my-auto text-white bg-myOrange px-6 max-md:w-1/3'
           onPress={onOpen}
@@ -103,7 +103,7 @@ const Services = () => {
               </ModalBody>
               <ModalFooter>
                 <Button
-                  radius='full'
+                  radius='sm'
                   className='text-black'
                   variant='light'
                   onPress={onClose}
@@ -111,7 +111,7 @@ const Services = () => {
                   انصراف
                 </Button>
                 <Button
-                  radius='full'
+                  radius='sm'
                   className='border bg-myOrange text-white'
                   onPress={handleSubmit(onSubmit)}
                 >

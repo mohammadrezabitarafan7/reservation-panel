@@ -71,7 +71,7 @@ const WeeksForm = () => {
         >
           <div className='flex flex-wrap-reverse justify-end gap-4'>
             {days.map((day, index) => (
-              <Checkbox key={index} value={day.value}>
+              <Checkbox className='text-red-700' key={index} value={day.value}>
                 {day.day}
               </Checkbox>
             ))}

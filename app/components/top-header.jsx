@@ -14,20 +14,20 @@ const TopHeader = () => {
   }
 
   return (
-    <div className=' flex flex-row-reverse gap-5   max-md:flex-col-reverse'>
-      <div className='basis-[70%] bg-[#24303c] shadow-sm rounded-md flex flex-col gap-5 p-6 '>
-        <h1 className='text-myOrange font-bold text-lg text-end'>
-          ! به پنل کاربری نوبت دهی خوش آمدید
+    <div className=' flex flex-row-reverse gap-5   max-md:flex-col-reverse '>
+      <div className='basis-[70%] bg-[#24303c] shadow-sm rounded-md flex flex-col justify-evenly gap-5 p-6 '>
+        <h1 className='text-white  text-xl  text-end lg:font-bold'>
+          ! به  نوبت پرو خوش آمدید
         </h1>
-        <h1 className='text-myOrange text-sm font-semibold text-end max-md:hidden'>
+        {/* <h1 className='text-myOrange text-sm font-semibold text-end max-md:hidden'>
           لیست کاربرانی که درخواست داده اند
-        </h1>
+        </h1> */}
         <GetTime />
 
         <div className='flex flex-row-reverse justify-between'>
-          <div className='text-end flex my-auto flex-row gap-3 justify-end basis-[80%]'>
-            <h1 className='text-white'> نفر در حال انتظار</h1>
-            <h1 className='text-myOrange underline font-bold'>۱۲</h1>
+          <div className='text-end flex my-auto flex-row gap-2 justify-end basis-[80%]'>
+            <h1 className='text-myOrange text-sm'> نفر در حال انتظار</h1>
+            <h1 className='text-myOrange text-sm '>۱۲</h1>
           </div>
 
           <div className='basis-[20%] flex flex-col lg:hidden'>

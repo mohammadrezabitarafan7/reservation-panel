@@ -3,19 +3,24 @@ import clsx from 'clsx'
 import NavLinks from './navlinks'
 import { Divider } from '@heroui/react'
 import ExpiredDate from './expired-date'
+import Image from 'next/image'
+import logo from '../public/logo2.png'
 
 const SideBar = () => {
   return (
+   
     <div
       className={clsx(
         'flex flex-col justify-between shadow-xl w-[220px] max-md:hidden  overflow-y-auto scrollbar-hide bg-[#24303c]',
         'max-h-screen overflow-y-auto'
       )}
     >
-      <div className='h-14 p-3 flex  sticky top-0 bg-inherit z-10'>
+      <Image className='m-auto  mt-5' width={150} src={logo} />
+      <Divider className='bg-[#FF4F00] h-[2px] rounded-lg mt-2 w-2/3 mx-auto' />
+
+      {/* <div className='h-14 p-3 flex  sticky top-0 bg-inherit z-10'>
         <ExpiredDate />
-      </div>
-      <Divider className='bg-[#FF4F00] h-[2px] rounded-lg w-2/3 mx-auto' />
+      </div> */}
 
       <NavLinks />
       {/* Span at the bottom */}
